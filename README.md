@@ -107,6 +107,7 @@ private:
 ```
 ## Example Usage
 
+```cpp
 #include "minheap.h"
 #include <iostream>
 
