@@ -52,3 +52,85 @@ int main() {
 
     return 0;
 }
+```
+
+
+# 🔽 MinHeap Template in C++
+
+This project is a generic **Min-Heap (Priority Queue)** implementation in C++ using **templates** and **`std::vector`**. The class supports efficient insertion, deletion of the minimum element, and retrieval of the top (smallest) value.
+
+---
+
+## 🚀 Features
+
+- 📦 **Generic Template Class** (`MinHeap<T>`)
+- 🧱 Backed by `std::vector`
+- ➕ `push(T val)` — Insert a new element
+- ➖ `pop()` — Remove the smallest element (root)
+- 🔍 `top()` — Access the smallest element
+- 📏 `size()`, `empty()`
+- 🧹 `clear()`, `print()`
+- 📦 Supports:
+  - Default constructor
+  - Copy constructor
+  - Move constructor
+  - `std::initializer_list` constructor
+
+---
+
+## 🧠 Class Interface
+
+```cpp
+template <typename T>
+class MinHeap {
+public:
+    MinHeap();
+    MinHeap(const MinHeap<T>&);
+    MinHeap(MinHeap<T>&&);
+    MinHeap(std::initializer_list<T>);
+    void push(T);
+    void pop();
+    T& top();
+    int size() const;
+    bool empty() const;
+    void clear();
+    void print();
+
+private:
+    void heapify(std::vector<T>&, int);
+    int left(int);
+    int right(int);
+    void swap(T& a, T& b);
+    std::vector<T> arr;
+    int m_size = 0;
+};
+```
+## Example Usage
+
+#include "minheap.h"
+#include <iostream>
+
+int main() {
+    MinHeap<int> heap = {5, 3, 8, 1, 4};
+
+    std::cout << "Initial Heap: ";
+    heap.print();
+
+    heap.push(0);
+    std::cout << "After push(0): ";
+    heap.print();
+
+    std::cout << "Top Element: " << heap.top() << std::endl;
+
+    heap.pop();
+    std::cout << "After pop(): ";
+    heap.print();
+
+    std::cout << "Size: " << heap.size() << std::endl;
+    std::cout << "Is empty: " << std::boolalpha << heap.empty() << std::endl;
+
+    heap.clear();
+    std::cout << "After clear(): ";
+    heap.print();
+}
+
