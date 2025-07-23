@@ -1,4 +1,4 @@
-#include "BinaryTree.h"
+#include "BinaryTreeAVL.h"
 #include "queue.h"
 template <class T>
 void print(BST<T> &);
